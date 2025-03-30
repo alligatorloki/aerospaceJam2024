@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aerospace Jam Template WebUI</title>
+<script>
+    function fetchSensorData() {
+        fetch('/sensors').then(response => response.json()).then(data => {
+            {{update_js}}
+        });
+    }
+    setInterval(fetchSensorData, 2000);  // Fetch data every 2 seconds
+</script>
+</head>
+<body>
+<h1>Aerospace Jam Template WebUI</h1>
+<p>Your Pico W is running as a Wi-Fi hotspot.</p>
+<p>Static IP: {{ip}}</p>
+<h2>Sensor Data:</h2>
+{{sensor_data_html}}
+<a href="/hello">Say hello!</a>
+</body>
+</html>
+
